@@ -1,0 +1,35 @@
+const float f1 = 9.9;
+int main()
+{
+        int x = 5;
+        int y = 0;
+		cin >> y;
+        int result = Calculate(x, y);
+		cout << result;
+        float f2 = f1;
+        return 0;
+}
+
+int Calculate(int x, int y)
+{
+        int result;
+        int temp = x;
+        x = temp + MAX;
+        x = y - temp;
+        x = x * MIN;
+        x = x / y;
+        if(x > MAX)
+                result = 1;
+        else
+                result = 0;
+        if(y < MIN)
+                result = result + 1;
+        return result;
+}
+//number values: 10, 5, 1, 0, 9.9
+//operators: =, +, -, *, /, >, <, <<, >>, //
+//constants: MAX, MIN
+//preprocessor: #define
+//Keywords: int, return, const, float, if, else
+//Symbols: {, }, (, ), ;, .
+//identifiers: main, x, y, Calculate, temp, f1, f2, result

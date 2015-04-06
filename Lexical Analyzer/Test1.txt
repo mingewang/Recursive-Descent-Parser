@@ -1,0 +1,159 @@
+int main()
+{
+    int menu_choice;
+	menu_choice = 0;
+    int number;
+	number = 0;
+
+    while ( menu_choice < 9)
+	{
+		DisplayMenu(menu_choice);
+		ProcessMenuChoice(menu_choice,number);
+	} 
+	cout << "\n\n";
+    return 0;
+}
+void ProcessMenuChoice( int menu_choice, int number )
+{
+		if(menu_choice == 1)
+			number = GetData();
+		if(menu_choice == 2)
+			IsOddEven(number);
+		if(menu_choice == 3)
+			IsPosNeg(number);
+		if (number < 0)
+			cout << "\nError: Cannot take the square root of a negative number.\n\n";
+		else
+			cout << "\nThe square root of the number is: ";
+		if(menu_choice == 5)
+		{
+			int digits;
+			digits = FindNumDigits(number);
+			cout << "\nThere are " << digits << " digits.\n\n";
+		}
+		if(menu_choice == 6)
+		{
+			int digit_position;
+			digit_position = 0;
+			cout << "Enter the digit position: ";
+			cin >> digit_position;
+			FindDigitPosition(digit_position,number);
+		}
+		if(menu_choice == 7)
+			DisplayAdditionTable();
+		if(menu_choice == 8)
+			DisplayMultiplicationTable();
+		if(menu_choice == 9)
+			cout << "\nThanks for playing!";
+}
+void DisplayAdditionTable()
+{
+	cout << "\n" <<  " ";
+	int col;
+	col = 1;
+	int row;
+	row = 1;
+	while(col < 13)
+	{
+		cout << col;
+		col = col + 1;
+	}
+	cout << "\n";
+	while(row < 13)
+	{
+		cout << row;
+		row = row + 1;
+	}
+	cout << "\n";
+}
+void DisplayMultiplicationTable()
+{
+	cout << "\n" <<  " ";
+	int col;
+	col = 1;
+	int row;
+	row = 1;
+	while(col < 13)
+	{
+		cout << col;
+		col = col + 1;
+	}
+	cout << "\n";
+	while(row < 13)
+	{
+		cout << row;
+		row = row + 1;
+	}
+	cout << "\n";
+}
+void FindDigitPosition( int digit_position, int number )
+{
+	int digits;
+	digits = 0;
+	cout << "\nDigit at position " << digit_position << ": " << number / 10 << "\n\n";
+}
+int FindNumDigits( int number )
+{
+	int digits;
+	digits = 0;
+	if (number == 0 )
+		digits = 1;
+	return digits;
+}
+void IsOddEven( int number )
+{
+	cout << "\nThe number is: ";
+
+	if ( number == 0 )
+		cout << "Zero";
+	if ( number / 2 == 0 )
+		cout << "Even";
+	else
+		cout << "Odd";
+	cout << "\n\n";
+}
+void IsPosNeg( int number )
+{
+	cout << "\nThe number is: ";
+
+	if ( number == 0 )
+		cout << "Zero";
+	else if ( number < 0 )
+		cout << "Negative";
+	else
+		cout << "Positive";
+
+	cout << "\n\n";
+}
+void DisplayMenu( int menu_choice )
+{
+	cout << "1) Get a number\n";
+	cout << "2) Is a number odd or even?\n";
+	cout << "3) Is a number positive or negative?\n";
+	cout << "4) What is the square root of a number?\n";
+	cout << "5) How many digits are in a number?\n";
+	cout << "6) What digit is at a specific position?\n";
+	cout << "7) Display the addition table.\n";
+	cout << "8) Display the multiplication table.\n";
+	cout << "9) Exit\n\n";
+	cout << "Enter a menu choice: ";
+	cin >> menu_choice;
+}
+int GetData()
+{
+	int number;
+	number = 0;
+
+	while ( abs( number ) > 1000000)
+	{
+		cout << "\nEnter a whole number (-1,000,000 to 1,000,000): ";
+		cin >> number;
+
+		if ( abs( number ) > 1000000 )
+		{
+			cout << "\nError: Number out of range. Please re-enter.\n\n";
+		}
+	}
+
+	return number;
+}
